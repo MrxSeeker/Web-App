@@ -1,0 +1,18 @@
+<h1>Registracija</h1>
+<hr class="colorgraph"><br>
+<div class="col-sm-7">
+    <div class="form-group">
+        <input [(ngModel)]="user.username" type="text" class="form-control" name="username" placeholder="username"
+            required="" autofocus="" />
+        <br />
+        <input [(ngModel)]="user.password" type="password" class="form-control" name="password" placeholder="password"
+            required="" autofocus="" />
+        <br />
+        <input [(ngModel)]="user.email" type="text" class="form-control" name="email" placeholder="email" required=""
+            autofocus="" />
+        <br />
+        <button class="btn btn-lg btn-primary btn-block" name="Save" value="Shrani" (click)="Register()">
+            Registracija
+        </button>
+    </div>
+</div>

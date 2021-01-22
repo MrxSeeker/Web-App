@@ -1,0 +1,23 @@
+<h3>{{photo.name}}</h3>
+
+<h6>{{photo.username}} on {{ photo.date  | date : 'yyyy-MM-dd hh:mm:ss' }}</h6>
+<div *ngIf="isLoggedIn()">
+  <h5 class="float-right" (click)="reportPhoto()"><a><i class="fas fa-exclamation-circle text-danger"></i></a></h5>
+  <br />
+</div>
+<div class="card bg-dark text-dark mb-2">
+  <img class="card-img" src="{{photoHost+photo.path}}" alt="{{photo.name}}">
+</div>
+<div class="card-img-bottom">
+  <h5 class="card-title" (click)="likePhoto()"><a><i class="fas fa-heart text-danger"></i></a>
+    {{photo.likes}} <a><i class="fas fa-comment-dots text-secondary"></i></a> {{photo.comments?.length}}</h5>
+</div>
+
+<hr class="colorgraph"><br>
+<h6 class="card-text" *ngFor="let comment of photo.comments.slice().reverse()">{{comment}}</h6>
+<div *ngIf="isLoggedIn()" class="card-text form-group input-group-prepend bg-transparent">
+  <input (keydown.enter)="commentPhoto()" type="text" class="form-control bg-transparent border-secondary"
+    name="comment" id="comment" required="" autofocus="" />
+  <button class="btn btn-lg bg-transparent" name="comment" value="Comment" (click)="commentPhoto()"><a><i
+        class="fas fa-paper-plane text-dark"></i></a></button>
+</div>
